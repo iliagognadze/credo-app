@@ -13,3 +13,5 @@ modern.jsonp
 resources/sass/.sass-cache/
 resources/.arch-internal-preview.css
 .arch-internal-preview.css
+generatedFiles/desktop.jsonp
+generatedFiles/desktop.json
