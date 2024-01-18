@@ -50,6 +50,14 @@ Ext.define('CredoApp.view.register.RegisterView', {
                     allowBlank: false
                 },
                 {
+                    xtype: 'datefield',
+                    label: 'დაბადების თარიღი:',
+                    placeholder: 'შეიყვანეთ დაბადების თარიღი',
+                    reference: 'birthDateField',
+                    name: 'birthDate',
+                    allowBlank: false
+                },
+                {
                     xtype: 'passwordfield',
                     label: 'პაროლი:',
                     placeholder: 'შეიყვანეთ პაროლი',

@@ -8,8 +8,41 @@ Ext.define('CredoApp.view.register.RegisterViewController', {
             surname = this.lookupReference('surnameField').getValue(),
             email = this.lookupReference('emailField').getValue(),
             privateNumber = this.lookupReference('privateNumberField').getValue(),
+            birthDate = this.lookupReference('birthDateField').getValue(),
             password = this.lookupReference('passwordField').getValue(),
             confirmPassword = this.lookupReference('confirmPasswordField').getValue();
+
+        if (password !== confirmPassword)
+            Ext.Msg.alert('არასწორი ინფორმაცია', 'პაროლები არ ემთხვევა')
+
+        const userRegistrationRequest = {
+            privateNumber,
+            email,
+            name,
+            surname,
+            password,
+            birthDate
+        }
+
+        console.log(userRegistrationRequest)
+
+        console.log(typeof birthDate)
+
+        Ext.Ajax.request({
+            url: "http://localhost:5108/api/users",
+            method: 'POST',
+            params: userRegistrationRequest,
+
+            success: function(result, action, response) {
+                Ext.Msg.alert('გილოცავთ!', 'თქვენ წარმატებით დარეგისტრირდით')
+            },
+
+            fail: function(result, action, response) {
+                console.log(response);
+            },
+
+            scope: this
+        });
 
         console.log(name, surname, email, privateNumber, password, confirmPassword)
     },
