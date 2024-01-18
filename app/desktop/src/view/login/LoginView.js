@@ -19,7 +19,7 @@ Ext.define('CredoApp.view.login.LoginView', {
             items: [
                 {
                     xtype: 'emailfield',
-                    label: 'E-mail:',
+                    label: 'ელ-ფოსტა:',
                     placeholder: 'შეიყვანეტ ელ-ფოსტა',
                     reference: 'emailField',
                     name: 'email',
@@ -27,7 +27,7 @@ Ext.define('CredoApp.view.login.LoginView', {
                 },
                 {
                     xtype: 'passwordfield',
-                    label: 'Password:',
+                    label: 'პაროლი:',
                     placeholder: 'შეიყვანეთ პაროლი',
                     reference: 'passwordField',
                     name: 'password',
@@ -37,14 +37,14 @@ Ext.define('CredoApp.view.login.LoginView', {
             ],
             buttons: [
                 {
-                    text: 'შესვლა',
-                    formBind: true,
-                    handler: 'onLoginClick'
-                },
-                {
                     text: 'რეგისტრაცია',
                     formBind: true,
                     handler: 'onRegisterClick'
+                },
+                {
+                    text: 'შესვლა',
+                    formBind: true,
+                    handler: 'onLoginClick'
                 }
             ]
         }

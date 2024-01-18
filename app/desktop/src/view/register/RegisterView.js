@@ -19,7 +19,7 @@ Ext.define('CredoApp.view.register.RegisterView', {
             items: [
                 {
                     xtype: 'textfield',
-                    label: 'Name:',
+                    label: 'სახელი:',
                     placeholder: 'შეიყვანეთ სახელი',
                     reference: 'nameField',
                     name: 'name',
@@ -27,7 +27,7 @@ Ext.define('CredoApp.view.register.RegisterView', {
                 },
                 {
                     xtype: 'textfield',
-                    label: 'Surname:',
+                    label: 'გვარი:',
                     placeholder: 'შეიყვანეტ გვარი',
                     reference: 'surnameField',
                     name: 'surname',
@@ -35,7 +35,7 @@ Ext.define('CredoApp.view.register.RegisterView', {
                 },
                 {
                     xtype: 'emailfield',
-                    label: 'E-mail:',
+                    label: 'ელ-ფოსტა:',
                     placeholder: 'შეიყვანეტ ელ-ფოსტა',
                     reference: 'emailField',
                     name: 'email',
@@ -43,7 +43,7 @@ Ext.define('CredoApp.view.register.RegisterView', {
                 },
                 {
                     xtype: 'textfield',
-                    label: 'Private number:',
+                    label: 'პირადი ნომერი:',
                     placeholder: 'შეიყვანეთ პირადი ნომერი',
                     reference: 'privateNumberField',
                     name: 'privateNumber',
@@ -51,7 +51,7 @@ Ext.define('CredoApp.view.register.RegisterView', {
                 },
                 {
                     xtype: 'passwordfield',
-                    label: 'Password:',
+                    label: 'პაროლი:',
                     placeholder: 'შეიყვანეთ პაროლი',
                     reference: 'passwordField',
                     name: 'password',
@@ -60,7 +60,7 @@ Ext.define('CredoApp.view.register.RegisterView', {
                 },
                 {
                     xtype: 'passwordfield',
-                    label: 'Confirm password:',
+                    label: 'პაროლის დასტური:',
                     placeholder: 'ხელახლა შეიყვანეთ პაროლი',
                     reference: 'confirmPasswordField',
                     name: 'confirmPassword',
@@ -70,7 +70,12 @@ Ext.define('CredoApp.view.register.RegisterView', {
             ],
             buttons: [
                 {
-                    text: 'Register',
+                    text: 'შესვლა',
+                    formBind: true,
+                    handler: 'onLoginClick'
+                },
+                {
+                    text: 'რეგისტრაცია',
                     formBind: true,
                     handler: 'onRegisterClick'
                 }

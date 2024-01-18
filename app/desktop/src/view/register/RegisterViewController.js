@@ -7,7 +7,7 @@ Ext.define('CredoApp.view.register.RegisterViewController', {
             name = this.lookupReference('nameField').getValue(),
             surname = this.lookupReference('surnameField').getValue(),
             email = this.lookupReference('emailField').getValue(),
-            privateNumber = this.lookupReference('privateNumber').getValue(),
+            privateNumber = this.lookupReference('privateNumberField').getValue(),
             password = this.lookupReference('passwordField').getValue(),
             confirmPassword = this.lookupReference('confirmPasswordField').getValue();
 
