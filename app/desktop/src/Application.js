@@ -12,7 +12,17 @@ Ext.define('CredoApp.Application', {
 
 	launch: function () {
 		this.removeSplash()
-		var whichView = 'mainview'
+
+		// It's important to note that this type of application could use
+		// any type of storage, i.e., Cookies, LocalStorage, etc.
+		var loggedIn;
+
+		// Check to see the current value of the localStorage key
+		loggedIn = localStorage.getItem("accessToken");
+
+		console.log(loggedIn)
+
+		var whichView = loggedIn ? 'mainview' : 'loginview'
 		Ext.Viewport.add([{xtype: whichView}])
 	},
 
