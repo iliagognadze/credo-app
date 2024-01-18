@@ -16,6 +16,12 @@ Ext.define('CredoApp.view.login.LoginViewController', {
         this.getView().destroy();
 
         Ext.Viewport.add([{xtype: 'mainview'}])
+    },
+
+    onRegisterClick: function() {
+        this.getView().destroy()
+
+        Ext.Viewport.add([{xtype: 'registerview'}])
     }
 });
 

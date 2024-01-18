@@ -37,9 +37,14 @@ Ext.define('CredoApp.view.login.LoginView', {
             ],
             buttons: [
                 {
-                    text: 'Login',
+                    text: 'შესვლა',
                     formBind: true,
                     handler: 'onLoginClick'
+                },
+                {
+                    text: 'რეგისტრაცია',
+                    formBind: true,
+                    handler: 'onRegisterClick'
                 }
             ]
         }
