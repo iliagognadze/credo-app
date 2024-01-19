@@ -15,7 +15,8 @@ Ext.define('CredoApp.view.main.header.HeaderView', {
             ui: 'headerbutton',
             reference: 'detailtoggle',
             handler: 'onHeaderViewDetailToggle',
-            iconCls: 'x-fa fa-arrow-left'
+            iconCls: 'x-fa fa-arrow-left',
+            text: 'გასვლა'
         }
     ]
 });

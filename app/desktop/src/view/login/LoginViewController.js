@@ -6,16 +6,39 @@ Ext.define('CredoApp.view.login.LoginViewController', {
         const email = this.lookupReference('emailField').getValue(),
             password = this.lookupReference('passwordField').getValue();
 
-        if (email !== 'ilia' || password !== 'test') {
-            Ext.Msg.alert('არასწორი მონაცემები!', 'გთხოვთ შეიყვანოთ სწორი მონაცემები')
-            return
+        const authRequest = {
+            email,
+            password
         }
 
-        localStorage.setItem('accessToken', makeId(26));
+        Ext.Ajax.request({
+            url: "http://localhost:5108/api/auth",
+            method: 'POST',
+            jsonData: authRequest,
 
-        this.getView().destroy();
+            success: function(result, action, response) {
+                const jsonResponse = JSON.parse(result.responseText);
 
-        Ext.Viewport.add([{xtype: 'mainview'}])
+                console.log(result.responseText)
+
+                if (jsonResponse.accessToken == null)
+                    Ext.Msg.alert('შეცდომა', 'დაფიქსირდა შეცდომა.')
+
+                localStorage.setItem('accessToken', jsonResponse.accessToken);
+
+                this.getView().destroy()
+
+                Ext.Viewport.add([{xtype: 'mainview'}])
+
+                Ext.Msg.alert('მოგესალმებით!', 'თქვენ წარმატებით გაიარეთ ავტორიზაცია')
+            },
+
+            fail: function(result, action, response) {
+                console.log(response);
+            },
+
+            scope: this
+        });
     },
 
     onRegisterClick: function() {

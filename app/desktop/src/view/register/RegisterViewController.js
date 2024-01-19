@@ -31,9 +31,13 @@ Ext.define('CredoApp.view.register.RegisterViewController', {
         Ext.Ajax.request({
             url: "http://localhost:5108/api/users",
             method: 'POST',
-            params: userRegistrationRequest,
+            jsonData: userRegistrationRequest,
 
             success: function(result, action, response) {
+                this.getView().destroy()
+
+                Ext.Viewport.add([{xtype: 'loginview'}])
+
                 Ext.Msg.alert('გილოცავთ!', 'თქვენ წარმატებით დარეგისტრირდით')
             },
 

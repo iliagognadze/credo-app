@@ -9,20 +9,16 @@ Ext.define('CredoApp.view.personnel.PersonnelViewStore', {
         'status'
     ],
     groupField: 'loanType',
-    data: { items: [
-        {
-            loanType: 'auto',
-            amount: 133.54,
-            currency: 'gel',
-            period: '1 year',
-            status: 'active'
-        }
-    ]},
     proxy: {
-        type: 'memory',
+        type: 'rest',
+        url: 'http://localhost:5108/api/applications',
         reader: {
             type: 'json',
             rootProperty: 'items'
+        },
+        headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('accessToken')
         }
-    }
+    },
+    autoLoad: true
 });

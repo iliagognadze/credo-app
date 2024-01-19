@@ -67,16 +67,11 @@ Ext.define('CredoApp.view.main.MainViewController', {
 	},
 
 	onHeaderViewDetailToggle: function (button) {
-		var vm = this.getViewModel();
+		localStorage.removeItem('accessToken');
 
-		vm.set('detailCollapsed', !vm.get('detailCollapsed'));
+		window.location.reload()
 
-		if(vm.get('detailCollapsed')===true) {
-			button.setIconCls('x-fa fa-arrow-left');
-		}
-		else {
-			button.setIconCls('x-fa fa-arrow-right');
-		}
+		Ext.Viewport.add([{xtype: 'loginview'}])
 	},
 
 	onBottomViewlogout: function () {
