@@ -2,7 +2,7 @@ Ext.define('CredoApp.view.main.MainViewModel', {
 	extend: 'Ext.app.ViewModel',
 	alias: 'viewmodel.mainviewmodel',
 	data: {
-		name: 'CredoApp',
+		name: 'კრედო ბანკი',
 		navCollapsed:       false,
 		navview_max_width:    300,
 		navview_min_width:     44,

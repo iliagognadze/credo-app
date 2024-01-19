@@ -41,8 +41,33 @@ Ext.define('CredoApp.view.register.RegisterViewController', {
                 Ext.Msg.alert('გილოცავთ!', 'თქვენ წარმატებით დარეგისტრირდით')
             },
 
-            fail: function(result, action, response) {
-                console.log(response);
+            failure: function(result, action, response) {
+                const predefinedErrors = [
+                    {
+                        errorMessage: 'USER_WITH_PROVIDED_PRIVATE_NUMBER_ALREADY_EXISTS',
+                        alertMessage: 'თქვენ მიერ შეყვანილი პირადი ნომრით მომხმარებელი უკვე არსებობს.'
+                    },
+                    {
+                        errorMessage: 'USER_WITH_PROVIDED_EMAIL_ALREADY_EXISTS',
+                        alertMessage: 'თქვენ მიერ შეყვანილი ელ-ფოსტით მომხმარებელი უკვე არსებობს.'
+                    }
+                ]
+
+                console.log('failed')
+                console.log(result);
+
+                const responseData = JSON.parse(result.responseText);
+
+                let errorMessage = responseData.message
+
+                let errorInPredefined = predefinedErrors.find(pe => pe.errorMessage === errorMessage)
+
+                console.log(errorMessage)
+                console.log(errorInPredefined)
+
+                if (errorInPredefined) {
+                    Ext.Msg.alert('რეგისტრაცია ვერ მოხერხდა', errorInPredefined.alertMessage)
+                }
             },
 
             scope: this

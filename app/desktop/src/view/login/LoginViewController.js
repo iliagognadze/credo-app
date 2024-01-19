@@ -33,8 +33,14 @@ Ext.define('CredoApp.view.login.LoginViewController', {
                 Ext.Msg.alert('მოგესალმებით!', 'თქვენ წარმატებით გაიარეთ ავტორიზაცია')
             },
 
-            fail: function(result, action, response) {
-                console.log(response);
+            failure: function(result, action, response) {
+                const responseData = JSON.parse(result.responseText)
+
+                let errorCode = responseData.statusCode
+
+                if (errorCode === 401) {
+                    Ext.Msg.alert('რეგისტრაცია ვერ მოხერხდა', 'არასწორი ელ-ფოსტა ან პაროლი')
+                }
             },
 
             scope: this
