@@ -1,6 +1,6 @@
-Ext.define('CredoApp.view.personnel.PersonnelViewStore', {
+Ext.define('CredoApp.view.applications.ApplicationsViewStore', {
     extend: 'Ext.data.Store',
-    alias: 'store.personnelviewstore',
+    alias: 'store.applicationsviewstore',
     fields: [
         'loanType',
         'amount',

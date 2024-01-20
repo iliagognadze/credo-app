@@ -1,6 +1,6 @@
-Ext.define('CredoApp.view.personnel.PersonnelViewController', {
+Ext.define('CredoApp.view.applications.ApplicationsViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.personnelviewcontroller',
+    alias: 'controller.applicationsviewcontroller',
 
     loanTypeOptions: [
         {
@@ -131,7 +131,7 @@ Ext.define('CredoApp.view.personnel.PersonnelViewController', {
                                         controller.getView().getStore().load()
 
                                         Ext.Viewport.add([{
-                                            xtype: 'personnelview'
+                                            xtype: 'applicationsview'
                                         }])
 
                                         Ext.Msg.alert('წარმატებული ოპერაცია!', 'განაცხადი წარმატებით განახლდა')
@@ -195,7 +195,7 @@ Ext.define('CredoApp.view.personnel.PersonnelViewController', {
                     this.getView().getStore().load()
 
                     Ext.Viewport.add([{
-                        xtype: 'personnelview'
+                        xtype: 'applicationsview'
                     }])
 
                     Ext.Msg.alert('წარმატებული ოპერაცია!', 'განაცხადი წარმატებით წაიშალა')
@@ -275,7 +275,7 @@ Ext.define('CredoApp.view.personnel.PersonnelViewController', {
                                     controller.getView().getStore().load()
 
                                     Ext.Viewport.add([{
-                                        xtype: 'personnelview'
+                                        xtype: 'applicationsview'
                                     }])
 
                                     Ext.Msg.alert('წარმატებული ოპერაცია!', 'ახალი განაცხადი წარმატებით დაემატა')

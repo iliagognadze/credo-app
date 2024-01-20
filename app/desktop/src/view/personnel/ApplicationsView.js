@@ -1,11 +1,11 @@
-Ext.define('CredoApp.view.personnel.PersonnelView', {
+Ext.define('CredoApp.view.applications.ApplicationsView', {
     extend: 'Ext.grid.Grid',
-    xtype: 'personnelview',
-    cls: 'personnelview',
+    xtype: 'applicationsview',
+    cls: 'applicationsview',
     requires: ['Ext.grid.rowedit.Plugin'],
-    controller: { type: 'personnelviewcontroller' },
-    viewModel: { type: 'personnelviewmodel' },
-    store: { type: 'personnelviewstore' },
+    controller: { type: 'applicationsviewcontroller' },
+    viewModel: { type: 'applicationsviewmodel' },
+    store: { type: 'applicationsviewstore' },
     grouped: true,
     groupFooter: {
         xtype: 'gridsummaryrow'
@@ -21,15 +21,15 @@ Ext.define('CredoApp.view.personnel.PersonnelView', {
     },
     columns: [
         {
-            text: 'სესხის ტიპი',
+            text: '\u10e1\u10d4\u10e1\u10ee\u10d8\u10e1\u0020\u10e2\u10d8\u10de\u10d8',
             dataIndex: 'loanType',
             editable: true,
             width: 100,
             renderer: function(value) {
                 const loanTypes = {
-                    auto: 'ავტო სესხი',
-                    fast: 'სწრაფი სესხი',
-                    installment: 'განვადება'
+                    auto: '\u10d0\u10d5\u10e2\u10dd\u0020\u10e1\u10d4\u10e1\u10ee\u10d8',
+                    fast: '\u10e1\u10ec\u10e0\u10d0\u10e4\u10d8\u0020\u10e1\u10d4\u10e1\u10ee\u10d8',
+                    installment: '\u10d2\u10d0\u10dc\u10d5\u10d0\u10d3\u10d4\u10d1\u10d0'
                 }
 
                 let mappedValue = loanTypes[value]
@@ -38,33 +38,33 @@ Ext.define('CredoApp.view.personnel.PersonnelView', {
             }
         },
         {
-            text: 'თანხა',
+            text: '\u10d7\u10d0\u10dc\u10ee\u10d0',
             dataIndex: 'amount',
             editable: true,
             width: 100
         },
         {
-            text: 'ვალუტა',
+            text: '\u10d5\u10d0\u10da\u10e3\u10e2\u10d0',
             dataIndex: 'currency',
             editable: true,
             width: 100
         },
         {
-            text: 'პერიოდი',
+            text: '\u10de\u10d4\u10e0\u10d8\u10dd\u10d3\u10d8',
             dataIndex: 'period',
             editable: true,
             width: 100,
         },
         {
-            text: 'სტატუსი',
+            text: '\u10e1\u10e2\u10d0\u10e2\u10e3\u10e1\u10d8',
             dataIndex: 'status',
             width: 130,
             renderer: function(value) {
                 const loanTypes = {
-                    sent: 'გადაგზავნილი',
-                    processing: 'მუშავდება',
-                    approved: 'დამტკიცებული',
-                    declined: 'უარყოფილი'
+                    sent: '\u10d2\u10d0\u10d3\u10d0\u10d2\u10d6\u10d0\u10d5\u10dc\u10d8\u10da\u10d8',
+                    processing: '\u10db\u10e3\u10e8\u10d0\u10d5\u10d3\u10d4\u10d1\u10d0',
+                    approved: '\u10d3\u10d0\u10db\u10e2\u10d9\u10d8\u10ea\u10d4\u10d1\u10e3\u10da\u10d8',
+                    declined: '\u10e3\u10d0\u10e0\u10e7\u10dd\u10e4\u10d8\u10da\u10d8'
                 }
 
                 let mappedValue = loanTypes[value]
@@ -78,7 +78,7 @@ Ext.define('CredoApp.view.personnel.PersonnelView', {
                 xtype: 'widgetcell',
                 widget: {
                     xtype: 'button',
-                    text: 'რედაქტირება',
+                    text: '\u10e0\u10d4\u10d3\u10d0\u10e5\u10e2\u10d8\u10e0\u10d4\u10d1\u10d0',
                     handler: 'onEditClickHandler'
                 }
             }
@@ -89,7 +89,7 @@ Ext.define('CredoApp.view.personnel.PersonnelView', {
                 xtype: 'widgetcell',
                 widget: {
                     xtype: 'button',
-                    text: 'დადასტურება',
+                    text: '\u10d3\u10d0\u10d3\u10d0\u10e1\u10e2\u10e3\u10e0\u10d4\u10d1\u10d0',
                     handler: 'onSubmitClickHandler'
                 }
             }
@@ -100,7 +100,7 @@ Ext.define('CredoApp.view.personnel.PersonnelView', {
                 xtype: 'widgetcell',
                 widget: {
                     xtype: 'button',
-                    text: 'წაშლა',
+                    text: '\u10ec\u10d0\u10e8\u10da\u10d0',
                     handler: 'onDeleteClickHandler'
                 }
             }
@@ -109,15 +109,12 @@ Ext.define('CredoApp.view.personnel.PersonnelView', {
     items: [
         {
             xtype: 'button',
-            text: '+ განაცხადის დამატება',
+            text: '\u002b\u0020\u10d2\u10d0\u10dc\u10d0\u10ea\u10ee\u10d0\u10d3\u10d8\u10e1\u0020\u10d3\u10d0\u10db\u10d0\u10e2\u10d4\u10d1\u10d0',
             handler: 'addApplicationClickHandler', // Add a handler function in the controller
             docked: 'bottom',
             ui: 'action',
-            margin: '0 0 10 0', // Optional margin for spacing
-            textAlign: 'right' // Align to the right
+            margin: '0 0 10 0',
+            textAlign: 'right'
         }
-    ],
-    listeners: {
-        canceledit: 'onEditCancelled'
-    }
+    ]
 });
