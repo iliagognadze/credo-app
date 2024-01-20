@@ -26,15 +26,16 @@ Ext.define('CredoApp.view.applications.ApplicationsView', {
             editable: true,
             width: 100,
             renderer: function(value) {
-                const loanTypes = {
-                    auto: 'ავტო სესხი',
-                    fast: 'სწრაფი სესხი',
-                    installment: 'განვადება'
+                switch (value) {
+                    case 'auto':
+                        return 'ავტო სესხი'
+                    case 'fast':
+                        return 'სწრაფი სესხი'
+                    case 'installment':
+                        return 'განვადება'
+                    default:
+                        return value
                 }
-
-                let mappedValue = loanTypes[value]
-
-                return mappedValue ?? value
             }
         },
         {
@@ -60,16 +61,18 @@ Ext.define('CredoApp.view.applications.ApplicationsView', {
             dataIndex: 'status',
             width: 130,
             renderer: function(value) {
-                const loanTypes = {
-                    sent: 'გადაგზავნილი',
-                    processing: 'მუშავდება',
-                    approved: 'დამტკიცებული',
-                    declined: 'უარყოფილი'
+                switch (value) {
+                    case 'sent':
+                        return 'გადაგზავნილი'
+                    case 'processing':
+                        return 'მუშავდება'
+                    case 'approved':
+                        return 'დამტკიცებული'
+                    case 'declined':
+                        return 'უარყოფილი'
+                    default:
+                        return value
                 }
-
-                let mappedValue = loanTypes[value]
-
-                return mappedValue ?? value
             }
         },
         {
@@ -110,14 +113,11 @@ Ext.define('CredoApp.view.applications.ApplicationsView', {
         {
             xtype: 'button',
             text: '+ განაცხადის დამატება',
-            handler: 'addApplicationClickHandler', // Add a handler function in the controller
+            handler: 'addApplicationClickHandler', 
             docked: 'bottom',
             ui: 'action',
-            margin: '0 0 10 0', // Optional margin for spacing
-            textAlign: 'right' // Align to the right
+            margin: '0 0 10 0',
+            textAlign: 'right'
         }
-    ],
-    listeners: {
-        canceledit: 'onEditCancelled'
-    }
+    ]
 });

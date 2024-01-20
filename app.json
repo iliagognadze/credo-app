@@ -90,6 +90,9 @@
       {"path": "${app.webpack.bundle}", "compress": false }
     ],
     "output": {
+      "encodings": {
+        "js": "UTF-8"
+      },
       "appCache": {
         "enable": false,
         "path": "cache.appcache"
