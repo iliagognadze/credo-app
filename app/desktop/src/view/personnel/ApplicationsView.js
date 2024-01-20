@@ -17,7 +17,7 @@ Ext.define('CredoApp.view.applications.ApplicationsView', {
     },
     selModel: {
         type: 'rowmodel',
-        mode: 'SINGLE' // or 'MULTI' if you want to allow multiple selections
+        mode: 'SINGLE'
     },
     columns: [
         {
