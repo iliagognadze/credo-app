@@ -11,7 +11,7 @@ Ext.define('CredoApp.view.applications.ApplicationsViewStore', {
     groupField: 'loanType',
     proxy: {
         type: 'rest',
-        url: 'http://localhost:5108/api/applications',
+        url: 'http://credoapi-dev.eba-apnu7tgz.eu-central-1.elasticbeanstalk.com/api/applications',
         reader: {
             type: 'json',
             rootProperty: 'items'

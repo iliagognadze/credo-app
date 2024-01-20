@@ -29,7 +29,7 @@ Ext.define('CredoApp.view.register.RegisterViewController', {
         console.log(typeof birthDate)
 
         Ext.Ajax.request({
-            url: "http://localhost:5108/api/users",
+            url: "http://credoapi-dev.eba-apnu7tgz.eu-central-1.elasticbeanstalk.com/api/users",
             method: 'POST',
             jsonData: userRegistrationRequest,
 
@@ -82,15 +82,3 @@ Ext.define('CredoApp.view.register.RegisterViewController', {
         Ext.Viewport.add([{xtype: 'loginview'}])
     }
 });
-
-function makeId(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        counter += 1;
-    }
-    return result;
-}

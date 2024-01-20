@@ -12,7 +12,7 @@ Ext.define('CredoApp.view.login.LoginViewController', {
         }
 
         Ext.Ajax.request({
-            url: "http://localhost:5108/api/auth",
+            url: "http://credoapi-dev.eba-apnu7tgz.eu-central-1.elasticbeanstalk.com/api/auth",
             method: 'POST',
             jsonData: authRequest,
 

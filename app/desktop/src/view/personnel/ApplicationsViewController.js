@@ -121,7 +121,7 @@ Ext.define('CredoApp.view.applications.ApplicationsViewController', {
                                 const accessToken = localStorage.getItem('accessToken')
 
                                 Ext.Ajax.request({
-                                    url: `http://localhost:5108/api/applications/${loanApplication.id}`,
+                                    url: `http://credoapi-dev.eba-apnu7tgz.eu-central-1.elasticbeanstalk.com/api/applications/${loanApplication.id}`,
                                     method: 'PUT',
                                     jsonData: applicationUpdateRequest,
                                     headers: {
@@ -186,7 +186,7 @@ Ext.define('CredoApp.view.applications.ApplicationsViewController', {
             }
 
             Ext.Ajax.request({
-                url: `http://localhost:5108/api/applications/${loanApplication.id}`,
+                url: `http://credoapi-dev.eba-apnu7tgz.eu-central-1.elasticbeanstalk.com/api/applications/${loanApplication.id}`,
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
@@ -265,7 +265,7 @@ Ext.define('CredoApp.view.applications.ApplicationsViewController', {
                             const accessToken = localStorage.getItem('accessToken')
 
                             Ext.Ajax.request({
-                                url: `http://localhost:5108/api/applications`,
+                                url: `http://credoapi-dev.eba-apnu7tgz.eu-central-1.elasticbeanstalk.com/api/applications`,
                                 method: 'POST',
                                 jsonData: applicationCreationRequest,
                                 headers: {
